@@ -1,12 +1,13 @@
-//go:build test
-// +build test
+package mode_test
 
-package mode
+import (
+	"testing"
 
-import "testing"
+	"github.com/lab47/mode"
+)
 
-func init() {
-	if testing.Testing() {
-		DefaultMode = TestMode
+func TestMode(t *testing.T) {
+	if !mode.Debug() {
+		t.Fatal("debug was not automatically enabled")
 	}
 }
